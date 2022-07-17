@@ -16,7 +16,7 @@ Kurang *${max - user.exp}* lagi! ✨
     if (before !== user.level) {
         let teks = `.             ${user.role}`
         let str = `
-*🎉 C O N G R A T S 🎉*
+*Selamat*
 *${before}* ➔ *${user.level}* [ *${user.role}* ]`.trim()
         try {
             const img = await levelup(teks, user.level)
