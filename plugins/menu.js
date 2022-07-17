@@ -12,38 +12,37 @@ import fetch from 'node-fetch'
 const defaultMenu = {
   before: `
 %dash
-%m1 *U S E R*
-%m2 *Name:* %name
-%m2 *Tag:* %tag
-%m2 *Status:* %prems
-%m2 *Limit:* %limit
-%m2 *Money:* %money
-%m2 *Role:* %role
-%m2 *Level:* %level [ %xp4levelup Xp For Levelup]
-%m2 *Xp:* %exp / %maxexp
-%m2 *Total Xp:* %totalexp
+%m1 *Info User*
+%m2 *Name* : %name
+%m2 *Tag* : %tag
+%m2 *Status* : %prems
+%m2 *Limit* : %limit
+%m2 *Money* : %money
+%m2 *Role* : %role
+%m2 *Level* : %level [ %xp4levelup Xp For Levelup]
+%m2 *Xp* : %exp / %maxexp
+%m2 *Total Xp* : %totalexp
 %m3
 
-%m1 *T O D A Y*
+%m1 *Kalender*
 %m2 *%ucpn*
-%m2 *Days:* %week %weton
-%m2 *Date:* %date
-%m2 *Islamic Date:* %dateIslamic
-%m2 *Time:* %wib
+%m2 *Days* : %week %weton
+%m2 *Date* : %date
+%m2 *Tanggal islam* : %dateIslamic
+%m2 *Waktu* : %wib
 %m3
 
-%m1 *I N F O*
-%m2 *Bot Name:* %me
-%m2 *Mode:* %mode
-%m2 *Platform:* %platform
-%m2 *Type:* Node.Js
-%m2 *Baileys:* Multi Device
-%m2 *Prefix:* [ *%_p* ]
-%m2 *Uptime:* %muptime
-%m2 *Database:* %rtotalreg dari %totalreg
+%m1 *Bot Info*
+%m2 *Bot Name* : %me
+%m2 *Mode* : %mode
+%m2 *Platform* : %platform
+%m2 *Type* : Nodejs
+%m2 *Baileys* : Multi Device
+%m2 *Uptime* : %muptime
+%m2 *Database* : %rtotalreg dari %totalreg
 %m3
 
-%m1 *I N F O  C M D* 
+%m1 *INFO CMD* 
 %m4 *Ⓟ* = Premium
 %m4 *Ⓛ* = Limit
 %m3
@@ -62,7 +61,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname, args }) => {
   if (teks == 'all') tags = {
   'main': 'Main',
   'game': 'Game',
-  'rpg': 'RPG Games',
+  'rpg': 'Epic RPG',
   'xp': 'Exp & Limit',
   'sticker': 'Sticker',
   'kerang': 'Kerang Ajaib',
@@ -273,28 +272,28 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname, args }) => {
 
 let usrs = db.data.users[m.sender]
 let tek = `*${ucapan()} ${conn.getName(m.sender)}*
-*U S E R  I N F O*
-• *ɴᴀᴍᴇ:* ${usrs.registered ? usrs.name : conn.getName(m.sender)}
-• *ᴛᴀɢs:* @${m.sender.split`@`[0]}
-• *sᴛᴀᴛᴜs:* ${m.sender.split`@`[0] == nomorown ? 'Developer' : (usrs.premiumTime >= 1 ? 'Premium User' : 'Free User')}
-• *ᴘʀᴇᴍɪᴜᴍ:* ${usrs.premiumTime > 1 ? 'Yes': 'No'}
+𝑼𝒔𝒆𝒓 𝑰𝒏𝒇𝒐
+⬡ *ɴᴀᴍᴇ :* ${usrs.registered ? usrs.name : conn.getName(m.sender)}
+⬡ *ᴛᴀɢs :* @${m.sender.split`@`[0]}
+⬡ *sᴛᴀᴛᴜs :* ${m.sender.split`@`[0] == nomorown ? 'Developer' : (usrs.premiumTime >= 1 ? 'Premium User' : 'Free User')}
+⬡ *ᴘʀᴇᴍɪᴜᴍ :* ${usrs.premiumTime > 1 ? 'Yes': 'No'}
 
-*S T A T U S  I N F O*
-• *ᴜᴘᴛɪᴍᴇ:* ${mpt}
-• *ᴛɪᴍᴇ:* ${moment.tz('Asia/Jakarta').format('HH')} H  ${moment.tz('Asia/Jakarta').format('mm')} M  ${moment.tz('Asia/Jakarta').format('ss')} S
-• *ᴜsᴇʀs:* ${Object.keys(global.db.data.users).length}
-• *ʟɪᴍɪᴛ:* ${usrs.limit}
-• *ʟᴇᴠᴇʟ:* ${usrs.level}
-• *ʀᴏʟᴇ:* ${usrs.role}${usrs.premiumTime > 1 ? `
-• *ᴇxᴘɪʀᴇᴅ ᴘʀᴇᴍɪᴜᴍ:*
+𝑺𝒕𝒂𝒕𝒖𝒔 𝑰𝒏𝒇𝒐
+⬡ *ᴜᴘᴛɪᴍᴇ :* ${mpt}
+⬡ *ᴛɪᴍᴇ :* ${moment.tz('Asia/Jakarta').format('HH')} H  ${moment.tz('Asia/Jakarta').format('mm')} M  ${moment.tz('Asia/Jakarta').format('ss')} S
+⬡ *ᴜsᴇʀs :* ${Object.keys(global.db.data.users).length}
+⬡ *ʟɪᴍɪᴛ :* ${usrs.limit}
+⬡ *ʟᴇᴠᴇʟ :* ${usrs.level}
+⬡ *ʀᴏʟᴇ :* ${usrs.role}${usrs.premiumTime > 1 ? `
+⬡ *ᴇxᴘɪʀᴇᴅ ᴘʀᴇᴍɪᴜᴍ :*
 ${clockStringP(usrs.premiumTime - new Date())}` : ''}
 `
 const listMessage = {
   text: tek,
-  footer: '📮 *Note:* Jika menemukan bug, error atau kesulitan dalam penggunaan silahkan laporkan/tanyakan kepada Owner',
+  footer: '© Nadia Bot',
   mentions: await conn.parseMention(tek),
-  title: `${htki} *LIST MENU* ${htka}`,
-  buttonText: `CLICK HERE ⎙`,
+  title: `${htki} *List Menu* ${htka}`,
+  buttonText: `Klik Disini`,
   sections
 }
   if (teks == '404') {
@@ -434,7 +433,7 @@ const listMessage = {
   "jpegThumbnail": fs.readFileSync('./thumbnail.jpg'),
     },
   "title": `${ucapan()}`,
-  "description": '𝗧 𝗜 𝗠 𝗘 : ' + wktuwib,
+  "description": 'Time : ' + wktuwib,
   "currencyCode": "US",
   "priceAmount1000": "100",
   "retailerId": wm,
@@ -494,40 +493,40 @@ const listMessage = {
     const message = {
             document: { url: thumbdoc },
             jpegThumbnail: await (await fetch(thumbdoc)).buffer(),
-            fileName: '𝗧 𝗜 𝗠 𝗘 : ' + wktuwib,
+            fileName: 'Time : ' + wktuwib,
             mimetype: td,
             fileLength: fsizedoc,
             pageCount: fpagedoc,
             caption: text,
-            footer: titlebot + '\n⚡ Supported By FR Team',
+            footer: titlebot + '\nCreated By Mursid',
             templateButtons: [
                 {
                     urlButton: {
                         displayText: `${namebot}`,
-                        url: 'https://kannxapi.herokuapp.com/'
+                        url: 'https://github.com/Botwa021'
                     }
                 },
                 {
                     urlButton: {
-                        displayText: 'Group Official',
+                        displayText: '𝑮𝒓𝒖𝒑 𝑩𝒐𝒕',
                         url: sgc
                     }
                 },
                 {
                     quickReplyButton: {
-                        displayText: 'Owner',
+                        displayText: '𝑶𝒘𝒏𝒆𝒓',
                         id: '.owner'
                     }
                 },
                 {
                     quickReplyButton: {
-                        displayText: 'Speed',
+                        displayText: '𝑻𝒆𝒔𝒕𝒊𝒏𝒈 𝑺𝒑𝒆𝒆𝒅',
                         id: '.ping'
                     }
                 },
                 {
                     quickReplyButton: {
-                        displayText: 'Donasi',
+                        displayText: '𝑫𝒐𝒏𝒂𝒔𝒊',
                         id: '.donasi'
                     }
                 },
@@ -578,18 +577,18 @@ function clockStringP(ms) {
 }
 function ucapan() {
   const time = moment.tz('Asia/Jakarta').format('HH')
-  let res = "Selamat DiniHari ☀️"
+  let res = "Selamat DiniHari"
   if (time >= 4) {
-    res = "Good Morning 🌄"
+    res = "Good Morning"
   }
   if (time >= 10) {
-    res = "Good Afternoon ☀️"
+    res = "Good Afternoon"
   }
   if (time >= 15) {
-    res = "Good Afternoon 🌇"
+    res = "Good Afternoon"
   }
   if (time >= 18) {
-    res = "Good Night 🌙"
+    res = "Good Night"
   }
   return res
 }
