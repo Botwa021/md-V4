@@ -10,32 +10,25 @@ let handler  = async (m, { conn, command, args, usedPrefix, DevMode }) => {
 • @${nomorown.split`@`[0]} •
 ------- ${nameown} -------
 
-📮 *Note:*
-• Owner tidak menerima save contact
-• Owner berhak blockir tanpa alasan
-• Berbicaralah yang sopan & tidak spam
-• Owner Hanya merespon yang berkaitan dengan BOT
-• No Telp`
-
 //------------ BIO
 let ppown = await conn.profilePictureUrl(nomorown + '@s.whatsapp.net', 'image').catch(_ => hwaifu[1]) 
 let teksbio = `${htki} *BIODATA* ${htka}
-*ɴᴀᴍᴇ:* ⓊⒸⒽⒾⒽⒶ ⓃⒶⓇⓊⓉⓄ
-*ᴀɢᴇ:* 20ᵗʰ
-*sᴛᴀᴛᴜs:* single 
+⬡ *Nama :* Mursid
+⬡ *Umur :* 17
+⬡ *Status :* Pelajar SMK 
+⬡ *Asal :* Yogyakarta
 
-*ʙɪʀᴛʜᴅᴀʏ:* 21 Des 2002
-*ᴀᴅᴅʀᴇss:* Indonesia, Jawa Barat, Bandung
+⬡ *Birthday :* 25 Juli 2005
+⬡ *Address :* Indonesia, Gunungkidul, Yogyakarta
 
-*- - sᴋɪʟʟs: - -* 
-> JavaScript [89.7%]
-> Python [13.4%]
-> CSS [5.1%]
-> Html [1.2%]
+*SKILL* 
+⬡ *JavaScript :* 40%
+⬡ *Python :* 10℅
+⬡ *HTML :* 1.2%
 
-📷 *Instagram:* ${sig}
-🐈 *Github:* ${sgh}
-🥏 *Whatsapp* wa.me/${nomorown}
+⬡ *Instagram :* ${sig}
+⬡ *Github :* ${sgh}
+⬡ *Whatsapp :* wa.me/${nomorown}
 
 `
   let teks = ' '
@@ -43,16 +36,16 @@ const sections = [
    {
 	title: `${htjava} OWNER –––––––––·•`,
 	rows: [
-	    {title: "📱 • Nomor", rowId: ".owner nomor"},
-	{title: "🎨 • Biodata", rowId: ".owner bio"},
-	{title: "🌎 • Script", rowId: ".sc"},
+	    {title: "⬡ Nomor", rowId: ".owner nomor"},
+	{title: "⬡ Biodata", rowId: ".owner bio"},
+	{title: "⬡ Script", rowId: ".sc"},
 	]
     },{
 	title: `${htjava} SUPPORT ME –––––––·•`,
 	rows: [
-	    {title: "💹 • Donasi", rowId: ".owner nomor"},
-	{title: "🔖 • Sewa", rowId: ".sewa"},
-	{title: "🌟 • Buy Premium", rowId: ".premium"},
+	    {title: "⬡ Donasi", rowId: ".owner nomor"},
+	{title: "⬡ Sewa", rowId: ".sewa"},
+	{title: "⬡ Buy Premium", rowId: ".premium"},
 	]
   },
 ]
@@ -88,7 +81,7 @@ const listMessage = {
           break
 
         default:
-          return conn.sendButton( m.chat, caption, wm, null, [`⋮☰ Menu`, `.menu`], m)
+          return conn.sendButton( m.chat, caption, wm, null, [`Menu`, `.menu`], m)
       }
     }
   } catch (err) {
