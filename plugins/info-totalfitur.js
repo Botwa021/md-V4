@@ -9,7 +9,7 @@ contextInfo: { externalAdReply :{
                         mediaType: 2,
                         description: 'anu',
                         title: bottime,
-                        body: 'Total Cintaku Padamu',          previewType: 0,
+                        body: 'Total Fitur Nadia Bot',          previewType: 0,
                         thumbnail: fs.readFileSync("./thumbnail.jpg"),
                         sourceUrl: sig
                       }}
